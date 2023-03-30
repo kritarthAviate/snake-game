@@ -16,19 +16,21 @@ function App() {
   const speed = 150;
 
   const [gameStatus, setGameStatus] = useState("idle"); // idle, running, paused, over
-  // const [scoreBoard, setScoreBoard] = useState({
-  //   score: 0,
-  //   highScore: +localStorage.getItem("hiscore") || 0,
-  // });
+  const [scoreBoard, setScoreBoard] = useState({
+    score: 0,
+    highScore: +localStorage.getItem("hiscore") || 0,
+  });
 
   const updateScore = useCallback(() => {
-    // setScoreBoard((prev) => {
-    //   const newScore = prev.score + 1;
-    //   const newHighScore =
-    //     newScore > prev.highScore ? newScore : prev.highScore;
-    //   localStorage.setItem("hiscore", JSON.stringify(newHighScore));
-    //   return { score: newScore, highScore: newHighScore };
-    // });
+    setScoreBoard((prev) => {
+      const newScore = prev.score + 1;
+      const newHighScore =
+        newScore > prev.highScore ? newScore : prev.highScore;
+
+      localStorage.setItem("hiscore", JSON.stringify(newHighScore));
+
+      return { score: newScore, highScore: newHighScore };
+    });
   }, []);
 
   const updateData = useCallback(() => {
@@ -145,8 +147,8 @@ function App() {
           </div>
         )}
 
-        {/* <p className="score">Score: {scoreBoard.score}</p>
-        <p className="highScore">High Score: {scoreBoard.highScore}</p> */}
+        <p className="score">Score: {scoreBoard.score}</p>
+        <p className="highScore">High Score: {scoreBoard.highScore}</p>
       </div>
 
       <div className="controls">
@@ -173,7 +175,7 @@ function App() {
           className="reset"
           onClick={() => {
             setGameStatus("idle");
-            // setScoreBoard({ score: 0, highScore: scoreBoard.highScore });
+            setScoreBoard({ score: 0, highScore: scoreBoard.highScore });
             snake.current = [
               { x: 13, y: 15 },
               { x: 13, y: 16 },
