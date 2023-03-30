@@ -141,8 +141,10 @@ function App() {
         {gameStatus !== "running" && (
           <div className="gameStatus">
             {gameStatus === "over" && <p>Game Over</p>}
-            {gameStatus === "paused" && <p>Game Paused</p>}
-            {gameStatus === "idle" && <p>Press any arrow key to start</p>}
+            {gameStatus === "paused" && (
+              <p>Game paused, press any key to resume</p>
+            )}
+            {gameStatus === "idle" && <p>Press any key to start</p>}
           </div>
         )}
 
