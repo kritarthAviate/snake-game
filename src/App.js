@@ -155,6 +155,7 @@ function App() {
       <div className="controls">
         <button
           className="pause"
+          disabled={gameStatus !== "running"}
           onClick={() => {
             if (gameStatus === "running") setGameStatus("paused");
           }}
@@ -163,6 +164,7 @@ function App() {
         </button>
         <button
           className="resume"
+          disabled={gameStatus !== "paused"}
           onClick={() => {
             if (gameStatus === "paused") setGameStatus("running");
           }}
