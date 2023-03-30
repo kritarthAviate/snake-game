@@ -138,11 +138,13 @@ function App() {
       <p className="heading">Snake Game</p>
 
       <div className="board" ref={gameBoard}>
-        <div className="gameStatus">
-          {gameStatus === "over" && <p>Game Over</p>}
-          {gameStatus === "paused" && <p>Game Paused</p>}
-          {gameStatus === "idle" && <p>Press any arrow key to start</p>}
-        </div>
+        {gameStatus !== "running" && (
+          <div className="gameStatus">
+            {gameStatus === "over" && <p>Game Over</p>}
+            {gameStatus === "paused" && <p>Game Paused</p>}
+            {gameStatus === "idle" && <p>Press any arrow key to start</p>}
+          </div>
+        )}
 
         <p className="score">Score: {scoreBoard.score}</p>
         <p className="highScore">High Score: {scoreBoard.highScore}</p>
