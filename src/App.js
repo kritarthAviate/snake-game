@@ -49,7 +49,6 @@ function App() {
       snake.current[0].y < 0 ||
       snake.current[0].y > 21;
     if (hasCollidedWithWalls || hasCollidedWithItself) {
-      console.log("Game Over");
       setGameStatus("over");
       return;
     }
