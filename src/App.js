@@ -13,7 +13,7 @@ function App() {
   const gameBoard = useRef(null);
   const inputDir = useRef({ x: 0, y: -1 });
   const lastSnakeMoveTimeRef = useRef(0);
-  const speed = 150;
+  const speed = 15000;
 
   const [gameStatus, setGameStatus] = useState("idle"); // idle, running, paused, over
   const [scoreBoard, setScoreBoard] = useState({
@@ -34,6 +34,7 @@ function App() {
   }, []);
 
   const updateData = useCallback(() => {
+    console.log({ snake: snake.current });
     // check if snake has collided with itself
     const hasCollidedWithItself = snake.current.some((snakePart, index) => {
       if (index === 0) return false;

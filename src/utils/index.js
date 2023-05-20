@@ -1,6 +1,5 @@
 export const paintSnake = (gameBoard, snake) => {
   if (!gameBoard) return;
-
   for (const node of gameBoard.childNodes) {
     if (
       node.classList.value === "snakeHead" ||
