@@ -13,7 +13,7 @@ function App() {
   const gameBoard = useRef(null);
   const inputDir = useRef({ x: 0, y: -1 });
   const lastSnakeMoveTimeRef = useRef(0);
-  const speed = 15000;
+  const speed = 150;
 
   const [gameStatus, setGameStatus] = useState("idle"); // idle, running, paused, over
   const [scoreBoard, setScoreBoard] = useState({
